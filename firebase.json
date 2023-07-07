@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "food-review-niviacris",
     "public": "dist",
     "ignore": [
       "firebase.json",
