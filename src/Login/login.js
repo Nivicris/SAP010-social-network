@@ -42,7 +42,7 @@ export const loginUser = () => {
     if (!regexEmail.test(email)) {
       return 'Formato de e-mail inválido';
     }
-    return ''; // Retorna uma string vazia se o email for válido
+    return '';
   };
 
   const validarSenha = (senha) => {
@@ -52,7 +52,6 @@ export const loginUser = () => {
     return '';
   };
 
-  // função para usuário fazer login
   const fazerLogin = () => {
     login.addEventListener('click', async (event) => {
       event.preventDefault();
@@ -63,11 +62,9 @@ export const loginUser = () => {
       const senhaError = validarSenha(password);
 
       if (emailError || senhaError) {
-        // Se houver algum erro de email ou senha, exiba as mensagens de erro
         txtError.setAttribute('style', 'display: block');
         txtError.innerHTML = emailError || senhaError;
       } else {
-        // Caso contrário, prossiga com o login
         authLogin(emailInput, password)
           .then(() => {
             window.location.hash = '#feed';
@@ -82,7 +79,6 @@ export const loginUser = () => {
 
   fazerLogin();
 
-  // login google
   const loginGoogle = () => {
     btnGoogle.addEventListener('click', () => {
       authLoginGoogle()

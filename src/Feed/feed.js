@@ -79,14 +79,12 @@ export const feedUser = () => {
   const closeButton = container.querySelector('#close');
   const openPublishButton = container.querySelector('#experienceButton');
 
-  // Função para abrir o modal
   function openModal() {
-    modal.style.display = 'block'; // Exibe o modal
+    modal.style.display = 'block';
   }
 
-  // Função para fechar o modal
   function closeModal() {
-    modal.style.display = 'none'; // Oculta o modal
+    modal.style.display = 'none';
   }
 
   openPublishButton.addEventListener('click', openModal);
@@ -96,7 +94,6 @@ export const feedUser = () => {
       closeModal();
     }
   });
-  // Esse trecho de código permite fechar o modal quando o usuário clica fora da área do modal.
 
   authStateChanged((user) => {
     if (user) {
@@ -124,9 +121,7 @@ export const feedUser = () => {
       userId,
       id,
     }) => {
-      // myUserId pega o id do usuário logado.
       const myUserId = document.getElementById('userId').value;
-      // o liked valida se o id do usuário logado está dentro da lista de usuários que deram like.
       const liked = likes.find((item) => item.userId === myUserId) != null;
 
       return (
@@ -201,7 +196,6 @@ async function publishPost() {
 }
 window.publishPost = publishPost;
 
-// Função de like e deslike
 async function likePost(postId, liked) {
   const userId = document.getElementById('userId').value;
 
@@ -213,7 +207,6 @@ async function likePost(postId, liked) {
 }
 window.likePost = likePost;
 
-// função editar post
 async function editPostUser(id, description, restaurantName) {
   const openPublishButton = document.querySelector('#experienceButton');
   const postLocation = document.getElementById('postLocation');
@@ -226,7 +219,6 @@ async function editPostUser(id, description, restaurantName) {
 }
 window.editPostUser = editPostUser;
 
-// Função deletar post
 async function postDelete(id) {
   if (window.confirm('Deseja mesmo excluir esse post?')) {
     await deletePost(id);
